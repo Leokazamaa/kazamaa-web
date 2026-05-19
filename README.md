@@ -1,4 +1,6 @@
-<title>LEOKAZAMA - Soluções Digitais</title>
+<title>KAZAMA-WEB - Soluções Digitais</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
     * { 
         margin: 0; 
@@ -45,7 +47,6 @@
         text-align: left;
     }
 
-    /* Configuração para exibir exatamente dois blocos por linha */
     .container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -55,7 +56,6 @@
         margin-bottom: 20px;
     }
 
-    /* Ajuste para que os cards ocupem o espaço correto da coluna */
     .card {
         background-color: #1e293b;
         border: 1px solid #334155;
@@ -91,6 +91,13 @@
         font-size: 0.8rem;
         font-weight: bold;
         text-transform: uppercase;
+    }
+
+    /* Estilo para os ícones no topo dos cards */
+    .card-icon {
+        font-size: 3rem;
+        color: #38bdf8;
+        margin-bottom: 15px;
     }
 
     .card h2 {
@@ -170,7 +177,6 @@
         font-size: 1rem;
     }
 
-    /* Centraliza o bloco isolado de recarga sem esticar */
     .container-recarga {
         display: flex;
         justify-content: center;
@@ -179,7 +185,6 @@
         margin-bottom: 60px;
     }
 
-    /* Mantém duas colunas em telas médias e celulares modernos, reduzindo o espaço se necessário */
     @media (max-width: 600px) {
         .container {
             grid-template-columns: repeat(2, 1fr);
@@ -189,6 +194,11 @@
         
         .card {
             padding: 15px;
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
         }
 
         .price {
@@ -202,14 +212,15 @@
 </style>
 
 <header>
-    <h1>LEOKAZAMA STORE</h1>
-    <p>Sua plataforma completa de entertainment, inteligência artificial e recargas</p>
+    <h1>Casa na Web</h1>
+    <p>Sua plataforma completa de entretenimento, inteligência artificial e recargas</p>
 </header>
 
 <h2 class="section-title">Planos de Entretenimento (Canais Liberados)</h2>
 <div class="container">
     <div class="card">
         <div>
+            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
             <h2>Teste Grátis</h2>
             <div class="price">R$ 0</div>
             <ul class="features">
@@ -225,6 +236,7 @@
     <div class="card featured">
         <div class="badge">Mais Vendido</div>
         <div>
+            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
             <h2>Plano Mensal</h2>
             <div class="price">R$ 35 <span>/ mês</span></div>
             <ul class="features">
@@ -239,6 +251,7 @@
 
     <div class="card">
         <div>
+            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
             <h2>Plano Anual</h2>
             <div class="price">R$ 300 <span>/ 12 meses</span></div>
             <ul class="features">
@@ -256,6 +269,7 @@
 <div class="container">
     <div class="card">
         <div>
+            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
             <h2>Grok Pro</h2>
             <div class="price">R$ 49,90 <span>/ 30 dias</span></div>
             <ul class="features">
@@ -271,6 +285,7 @@
     <div class="card featured">
         <div class="badge">Exclusivo</div>
         <div>
+            <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
             <h2>Leonardo I.A. (ELIS)</h2>
             <div class="price">R$ 25 <span>/ todos os dias</span></div>
             <ul class="features">
@@ -285,6 +300,7 @@
 
     <div class="card">
         <div>
+            <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
             <h2>Gemini Pro</h2>
             <div class="price">R$ 49,90 <span>/ 30 dias</span></div>
             <ul class="features">
@@ -302,6 +318,7 @@
 <div class="container-recarga">
     <div class="card" style="max-width: 400px;">
         <div>
+            <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
             <h2>Recarregue Agora</h2>
             <p style="color: #94a3b8; margin-bottom: 20px; font-size: 0.95rem;">Selecione sua operadora para realizar a recarga de forma rápida e segura.</p>
             
