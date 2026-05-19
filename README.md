@@ -310,27 +310,27 @@
         <h1>Rádios Online Gratuitas</h1>
         <div class="radios-container">
             
-            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream1', this)">
+            <div class="radio-item" onclick="alternarRadio('https://streaming.fabricahost.com.br/8270/stream', this)">
                 <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Capital do Rap</div>
             </div>
 
-            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream2', this)">
+            <div class="radio-item" onclick="alternarRadio('https://cast4.hoost.com.br:28414/stream', this)">
                 <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Eurodance Mix</div>
             </div>
 
-            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream3', this)">
+            <div class="radio-item" onclick="alternarRadio('https://s04.wmsite.com.br:8244/stream', this)">
                 <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Elite Rock</div>
             </div>
 
-            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream4', this)">
+            <div class="radio-item" onclick="alternarRadio('https://shout25.crossradio.com.br:8106/1', this)">
                 <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Tião de Oliveira (Sertaneja Raiz)</div>
             </div>
 
-            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream5', this)">
+            <div class="radio-item" onclick="alternarRadio('https://ssl.painelcast.com:8012/stream', this)">
                 <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Dance Radio Net</div>
             </div>
