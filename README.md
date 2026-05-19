@@ -93,7 +93,6 @@
         text-transform: uppercase;
     }
 
-    /* Estilo para os ícones no topo dos cards */
     .card-icon {
         font-size: 3rem;
         color: #38bdf8;
@@ -202,32 +201,32 @@
         }
 
         .price {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .card h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
     }
 </style>
 
 <header>
     <h1>Casa na Web</h1>
-    <p>Sua plataforma completa de entretenimento, inteligência artificial e recargas</p>
+    <p>Sua plataforma completa de entretenimento, inteligência artificial e soluções digitais</p>
 </header>
 
-<h2 class="section-title">Planos de Entretenimento (Canais Liberados)</h2>
+<h2 class="section-title">Planos de Entretenimento (Canais & Streaming)</h2>
 <div class="container">
     <div class="card">
         <div>
             <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
-            <h2>Teste Grátis</h2>
+            <h2>Teste Grátis TV</h2>
             <div class="price">R$ 0</div>
             <ul class="features">
-                <li>Conheça a plataforma</li>
-                <li>Canais liberados</li>
-                <li>Alta estabilidade</li>
-                <li>Suporte garantido</li>
+                <li>Canais ao vivo, Filmes e Séries</li>
+                <li>Netflix, Disney+, GloboPlay</li>
+                <li>Paramount, Prime Video e mais</li>
+                <li>Funciona em todas as Smart TVs</li>
             </ul>
         </div>
         <button class="btn btn-secondary" onclick="enviarPedido('teste')">Solicitar Teste</button>
@@ -236,50 +235,92 @@
     <div class="card featured">
         <div class="badge">Mais Vendido</div>
         <div>
-            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
-            <h2>Plano Mensal</h2>
-            <div class="price">R$ 35 <span>/ mês</span></div>
+            <div class="card-icon"><i class="fa-solid fa-circle-play"></i></div>
+            <h2>Canais + Streaming Mensal</h2>
+            <div class="price">R$ 35 <span>/ 30 dias</span></div>
             <ul class="features">
-                <li>Acesso por 30 dias</li>
-                <li>Canais liberados</li>
-                <li>Estabilidade máxima</li>
-                <li>Suporte via operadoras principais</li>
+                <li>Todos os canais liberados</li>
+                <li>Netflix, Disney, Doramas e Animes</li>
+                <li>Estabilidade máxima em HD/4K</li>
+                <li>Funciona em todas as Smart TVs</li>
             </ul>
         </div>
-        <button class="btn" onclick="enviarPedido('mensal')">Assinar Agora</button>
+        <button class="btn" onclick="enviarPedido('mensal')">Assinar Mensal</button>
     </div>
 
     <div class="card">
         <div>
-            <div class="card-icon"><i class="fa-solid fa-tv"></i></div>
-            <h2>Plano Anual</h2>
+            <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+            <h2>Canais + Streaming Anual</h2>
             <div class="price">R$ 300 <span>/ 12 meses</span></div>
             <ul class="features">
-                <li>Acesso por 1 ano completo</li>
+                <li>Acesso completo por 1 ano</li>
                 <li>Super desconto promocional</li>
-                <li>Canais liberados em HD/4K</li>
-                <li>Suporte prioritário</li>
+                <li>Suporte prioritário garantido</li>
+                <li>Todas as plataformas inclusas</li>
             </ul>
         </div>
-        <button class="btn btn-secondary" onclick="enviarPedido('anual')">Aproveitar Promoção</button>
+        <button class="btn btn-secondary" onclick="enviarPedido('anual')">Assinar Anual</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-music"></i></div>
+            <h2>Spotify Premium</h2>
+            <div class="price">R$ 20 <span>/ 3 meses</span></div>
+            <ul class="features">
+                <li>Músicas sem anúncios</li>
+                <li>Modo offline ativado</li>
+                <li>PROMOÇÃO EXCLUSIVA</li>
+                <li>Alta qualidade de áudio</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('spotify')">Adquirir Spotify</button>
     </div>
 </div>
 
-<h2 class="section-title">Acessos a Inteligência Artificial</h2>
+<h2 class="section-title">Acessos a Inteligência Artificial & Edição</h2>
 <div class="container">
     <div class="card">
         <div>
-            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
-            <h2>Grok Pro</h2>
+            <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h2>Gemini Pro</h2>
             <div class="price">R$ 49,90 <span>/ 30 dias</span></div>
             <ul class="features">
-                <li>Acesso à tecnologia Grok</li>
-                <li>Geração de imagens de ponta</li>
-                <li>Respostas rápidas e precisas</li>
-                <li>Ideal para criadores de conteúdo</li>
+                <li>Acesso avançado à IA</li>
+                <li>Análise de dados de ponta</li>
+                <li>Produtividade máxima</li>
             </ul>
         </div>
-        <button class="btn" onclick="enviarPedido('grok')">Adquirir Grok</button>
+        <button class="btn btn-secondary" onclick="enviarPedido('gemini')">Adquirir Gemini</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+            <h2>ChatGPT Plus</h2>
+            <div class="price">R$ 49,90 <span>/ 30 dias</span></div>
+            <ul class="features">
+                <li>Acesso ao GPT-4 prioritário</li>
+                <li>Respostas e criações rápidas</li>
+                <li>Ferramentas exclusivas</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('chatgpt')">Adquirir ChatGPT</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+            <h2>CapCut Pro</h2>
+            <div class="price">R$ 30 <span>/ 30 dias</span></div>
+            <ul class="features">
+                <li>Edição de vídeo profissional</li>
+                <li>Efeitos e transições liberados</li>
+                <li>Exportação em alta qualidade</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('capcut')">Adquirir CapCut</button>
     </div>
 
     <div class="card featured">
@@ -291,26 +332,87 @@
             <ul class="features">
                 <li>Sistema Inteligente Integrado</li>
                 <li>Autonomia total de decisões</li>
-                <li>Desenvolvimento personalizado</li>
                 <li>Tecnologia sob medida</li>
             </ul>
         </div>
         <button class="btn" onclick="enviarPedido('leonardo')">Contratar Sistema</button>
     </div>
+</div>
+
+<h2 class="section-title">Games (Assinaturas e Jogos)</h2>
+<div class="container">
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-xbox"></i></div>
+            <h2>Game Pass Ultimate</h2>
+            <div class="price">Consulte</div>
+            <ul class="features">
+                <li>Disponível para Console e PC</li>
+                <li>Catálogo com centenas de jogos</li>
+                <li>Acesso ao modo online EA Play</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('gamepass')">Consultar Opções</button>
+    </div>
 
     <div class="card">
         <div>
-            <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <h2>Gemini Pro</h2>
-            <div class="price">R$ 49,90 <span>/ 30 dias</span></div>
+            <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+            <h2>PlayStation Plus</h2>
+            <div class="price">Consulte</div>
             <ul class="features">
-                <li>Acesso avançado à plataforma</li>
-                <li>Análise de dados avançada</li>
-                <li>Integração total com ferramentas</li>
-                <li>Produtividade máxima</li>
+                <li>Acesso ao modo multiplayer</li>
+                <li>Jogos mensais gratuitos</li>
+                <li>Descontos exclusivos na PSN</li>
             </ul>
         </div>
-        <button class="btn btn-secondary" onclick="enviarPedido('gemini')">Adquirir Gemini</button>
+        <button class="btn" onclick="enviarPedido('psn')">Consultar Planos</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-compact-disc"></i></div>
+            <h2>Jogos Digitais Retro & PC</h2>
+            <div class="price">A partir de R$ 5</div>
+            <ul class="features">
+                <li>PS1, PS2, PSP, Game Boy: R$ 5</li>
+                <li>Xbox 360, PS3: R$ 7</li>
+                <li>Nintendo Wii: R$ 5</li>
+                <li>Jogos de PC: R$ 10</li>
+            </ul>
+        </div>
+        <button class="btn btn-secondary" onclick="enviarPedido('jogos')">Pedir Catálogo</button>
+    </div>
+</div>
+
+<h2 class="section-title">Assistência Técnica & Suporte Online</h2>
+<div class="container">
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-unlock"></i></div>
+            <h2>Desbloqueios de Consoles</h2>
+            <div class="price">Consulte</div>
+            <ul class="features">
+                <li>Desbloqueio de PlayStation 3</li>
+                <li>Desbloqueio de Nintendo Wii</li>
+                <li>Instalação de lojas e emuladores</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('desbloqueio')">Solicitar Orçamento</button>
+    </div>
+
+    <div class="card">
+        <div>
+            <div class="card-icon"><i class="fa-solid fa-computer"></i></div>
+            <h2>Suporte & Sistemas Online</h2>
+            <div class="price">Consulte</div>
+            <ul class="features">
+                <li>Instalação/Configuração de PC Online</li>
+                <li>Instalação de todos os Sistemas</li>
+                <li>Remoção de Conta Google (FRP)</li>
+            </ul>
+        </div>
+        <button class="btn" onclick="enviarPedido('suporte')">Chamar Técnico</button>
     </div>
 </div>
 
@@ -326,13 +428,11 @@
                 <option value="TIM">TIM</option>
                 <option value="Claro">Claro</option>
                 <option value="Vivo">Vivo</option>
-                <option value="Oi">Oi</option>
-                <option value="Algar">Algar Telecom</option>
             </select>
 
             <ul class="features">
                 <li>Créditos caem na hora</li>
-                <li>Disponível para todas as regiões</li>
+                <li>Disponível para as principais operadoras</li>
                 <li>Pagamento facilitado e seguro</li>
             </ul>
         </div>
@@ -346,25 +446,46 @@
 
         switch(type) {
             case 'teste':
-                message = "Olá! Gostaria de solicitar um teste grátis da plataforma para conhecer os canais e a estabilidade.";
+                message = "Olá! Gostaria de solicitar um teste grátis do sistema de canais e streaming para testar na minha Smart TV.";
                 break;
             case 'mensal':
-                message = "Olá! Gostaria de assinar o Plano Mensal de R$ 35 por 30 dias. Como posso realizar o pagamento?";
+                message = "Olá! Gostaria de assinar o Plano Mensal de Canais + Streaming por R$ 35 (30 dias). Como faço para pagar?";
                 break;
             case 'anual':
-                message = "Olá! Gostaria de aproveitar a promoção e assinar o Plano Anual de R$ 300 por 12 meses. Como faço para aderir?";
+                message = "Olá! Quero aproveitar a promoção e adquirir o Plano Anual de Canais + Streaming por R$ 300.";
                 break;
-            case 'grok':
-                message = "Olá! Tenho interesse no acesso ao Grok Pro por R$ 49,90 por 30 dias. Como faço para adquirir?";
+            case 'spotify':
+                message = "Olá! Tenho interesse na promoção do Spotify Premium (3 meses por R$ 20).";
+                break;
+            case 'gemini':
+                message = "Olá! Tenho interesse no acesso ao Gemini Pro por R$ 49,90 por 30 dias.";
+                break;
+            case 'chatgpt':
+                message = "Olá! Tenho interesse no acesso ao ChatGPT Plus por R$ 49,90 por 30 dias.";
+                break;
+            case 'capcut':
+                message = "Olá! Gostaria de adquirir o acesso ao CapCut Pro por R$ 30 por 30 dias.";
                 break;
             case 'leonardo':
                 message = "Olá! Quero contratar o sistema integrado com a Inteligência Artificial Leonardo I.A. (ELIS) pelo valor diário de R$ 25.";
                 break;
-            case 'gemini':
-                message = "Olá! Tenho interesse no plano avançado do Gemini Pro por R$ 49,90 por 30 dias. Como posso assinar?";
+            case 'gamepass':
+                message = "Olá! Gostaria de consultar os valores e opções para o Game Pass Ultimate (Console / PC).";
+                break;
+            case 'psn':
+                message = "Olá! Gostaria de informações sobre os planos da PlayStation Plus.";
+                break;
+            case 'jogos':
+                message = "Olá! Quero consultar o catálogo de jogos digitais. Tenho interesse em jogos de (PC / Retrô).";
+                break;
+            case 'desbloqueio':
+                message = "Olá! Gostaria de um orçamento para desbloqueio de console (PS3 / Nintendo Wii).";
+                break;
+            case 'suporte':
+                message = "Olá! Preciso de assistência técnica (Instalação de Sistemas / Configuração de PC Online / Remoção de Conta Google).";
                 break;
             default:
-                message = "Olá! Gostaria de obter mais informações sobre os serviços da plataforma.";
+                message = "Olá! Gostaria de mais informações sobre as soluções digitais da plataforma.";
         }
 
         dispararWhatsapp(message);
@@ -372,7 +493,7 @@
 
     function enviarRecarga() {
         const operadoraSelecionada = document.getElementById('operadora').value;
-        const message = `Olá! Gostaria de realizar uma recarga de celular para a operadora ${operadoraSelecionada}. Como posso proceder com o pagamento?`;
+        const message = `Olá! Gostaria de realizar uma recarga de celular para a operadora ${operadoraSelecionada}. Como posso proceder?`;
         dispararWhatsapp(message);
     }
 
