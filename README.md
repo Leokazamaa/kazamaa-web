@@ -30,22 +30,90 @@
         align-items: center;
     }
 
-    header {
-        text-align: center;
-        margin-bottom: 40px;
+    /* Nova Seção de Rádios no topo, alinhadas da esquerda para a direita */
+    .radios-header-section {
+        width: 100%;
         margin-top: 20px;
+        margin-bottom: 30px;
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .radios-header-section h1 {
+        font-size: 1.6rem;
+        color: #38bdf8;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .radios-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center; /* Alinha os itens da esquerda para a direita centralizado no bloco */
         width: 100%;
     }
 
-    header h1 {
-        font-size: 2.5rem;
-        color: #38bdf8;
-        margin-bottom: 10px;
+    .radio-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 130px;
+        cursor: pointer;
+        transition: transform 0.2s;
     }
 
-    header p {
-        color: #94a3b8;
-        font-size: 1.1rem;
+    .radio-item:hover {
+        transform: scale(1.08);
+    }
+
+    /* Bolinha com o Play */
+    .radio-play-btn {
+        width: 60px;
+        height: 60px;
+        background-color: #0f172a;
+        border: 2px solid #334155;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        color: #38bdf8;
+        font-size: 1.8rem;
+        transition: all 0.2s;
+    }
+
+    .radio-item:hover .radio-play-btn {
+        border-color: #38bdf8;
+        background-color: #38bdf8;
+        color: #0f172a;
+        box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Estado ativo quando a rádio está tocando */
+    .radio-item.playing .radio-play-btn {
+        background-color: #22c55e;
+        border-color: #22c55e;
+        color: #0f172a;
+        animation: pulse 1.5s infinite;
+    }
+
+    .radio-name {
+        font-size: 0.85rem;
+        color: #cbd5e1;
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
     }
 
     .section-title {
@@ -219,14 +287,58 @@
         .card h2 {
             font-size: 1.1rem;
         }
+
+        .radios-header-section h1 {
+            font-size: 1.3rem;
+        }
+
+        .radio-item {
+            width: 100px;
+        }
+
+        .radio-play-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+        }
     }
 </style>
 
 <div class="wrapper">
-    <header>
-        <h1>Casa na Web</h1>
-        <p>Sua plataforma completa de entretenimento, inteligência artificial e soluções digitais</p>
-    </header>
+    
+    <div class="radios-header-section">
+        <h1>Rádios Online Gratuitas</h1>
+        <div class="radios-container">
+            
+            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream1', this)">
+                <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Capital do Rap</div>
+            </div>
+
+            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream2', this)">
+                <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Eurodance Mix</div>
+            </div>
+
+            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream3', this)">
+                <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Elite Rock</div>
+            </div>
+
+            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream4', this)">
+                <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Tião de Oliveira (Sertaneja Raiz)</div>
+            </div>
+
+            <div class="radio-item" onclick="alternarRadio('https://伺服器地址/stream5', this)">
+                <div class="radio-play-btn"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Dance Radio Net</div>
+            </div>
+
+        </div>
+    </div>
+
+    <audio id="global-player" style="display: none;"></audio>
 
     <h2 class="section-title">Planos de Entretenimento (Canais & Streaming)</h2>
     <div class="container">
@@ -485,6 +597,37 @@
 </div>
 
 <script>
+    let currentPlayingElement = null;
+
+    function alternarRadio(url, element) {
+        const player = document.getElementById('global-player');
+        
+        // Se clicar na mesma rádio que já está tocando, ela pausa
+        if (currentPlayingElement === element) {
+            player.pause();
+            element.classList.remove('playing');
+            element.querySelector('i').className = 'fa-solid fa-play';
+            currentPlayingElement = null;
+            return;
+        }
+
+        // Reseta o ícone da rádio anterior que estava tocando
+        if (currentPlayingElement) {
+            currentPlayingElement.classList.remove('playing');
+            currentPlayingElement.querySelector('i').className = 'fa-solid fa-play';
+        }
+
+        // Configura e toca a nova rádio
+        player.src = url;
+        player.play().then(() => {
+            element.classList.add('playing');
+            element.querySelector('i').className = 'fa-solid fa-pause';
+            currentPlayingElement = element;
+        }).catch(err => {
+            console.log("Erro ao carregar o streaming: ", err);
+        });
+    }
+
     function enviarPedido(type) {
         let message = "";
 
