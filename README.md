@@ -340,7 +340,7 @@
             </div>
 
             <div class="radio-item" id="radio4">
-                <div class="radio-play-btn" onclick="controlarRadio('https://shout25.crossradio.com.br:8106/;stream', 'radio4')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://s22.maxcast.com.br:8034/live?1779205840685', 'radio4')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Tião de Oliveira (Modão Raiz)</div>
                 <audio class="radio-mini-player" id="player-radio4" controls preload="none"></audio>
             </div>
