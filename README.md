@@ -292,7 +292,7 @@
         <div class="radios-container">
             
             <div class="radio-item" id="radio1">
-                <div class="radio-play-btn" onclick="controlarRadio('https://streaming.fabricahost.com.br/8270/stream', 'radio1')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://stm2.srvif.com:7998/;?1779206698440', 'radio1')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Capital do Rap (Nacional)</div>
                 <audio class="radio-mini-player" id="player-radio1" controls preload="none"></audio>
             </div>
