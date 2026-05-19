@@ -346,7 +346,7 @@
             </div>
 
             <div class="radio-item" id="radio5">
-                <div class="radio-play-btn" onclick="controlarRadio('https://ssl.painelcast.com:8012/;stream', 'radio5')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://stm14.voxhd.com.br:8368/stream?1779205274754', 'radio5')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Dance Radio Net</div>
                 <audio class="radio-mini-player" id="player-radio5" controls preload="none"></audio>
             </div>
