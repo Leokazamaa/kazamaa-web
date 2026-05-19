@@ -298,7 +298,7 @@
             </div>
 
             <div class="radio-item" id="radio2">
-                <div class="radio-play-btn" onclick="controlarRadio('https://cast4.hoost.com.br:28414/stream', 'radio2')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://stm8.xcast.com.br:6938/stream?1779206751106', 'radio2')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Eurodance Mix</div>
                 <audio class="radio-mini-player" id="player-radio2" controls preload="none"></audio>
             </div>
@@ -310,13 +310,13 @@
             </div>
 
             <div class="radio-item" id="radio4">
-                <div class="radio-play-btn" onclick="controlarRadio('https://shout25.crossradio.com.br:8106/;stream', 'radio4')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://s22.maxcast.com.br:8034/live?1779206856981', 'radio4')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Tião de Oliveira (Modão Raiz)</div>
                 <audio class="radio-mini-player" id="player-radio4" controls preload="none"></audio>
             </div>
 
             <div class="radio-item" id="radio5">
-                <div class="radio-play-btn" onclick="controlarRadio('https://ssl.painelcast.com:8012/;stream', 'radio5')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('http://stream.zeno.fm/zx9h2b61u8quv?1779206808942', 'radio5')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Dance Radio Net</div>
                 <audio class="radio-mini-player" id="player-radio5" controls preload="none"></audio>
             </div>
