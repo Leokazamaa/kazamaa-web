@@ -203,7 +203,7 @@
 
         // Configuração Centralizada do WhatsApp de Vendas
         // IMPORTANTE: Insira aqui o formato 55 + DDD + SEU NÚMERO (apenas números, sem espaços ou traços)
-        const WHATSAPP_NUMBER = "5500000000000"; 
+        const WHATSAPP_NUMBER = "5534991926047"; 
 
         function redirectToWhatsApp(type) {
             let message = "";
