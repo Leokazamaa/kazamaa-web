@@ -74,7 +74,6 @@
         border-color: #38bdf8;
     }
 
-    /* Bolinha com o Play */
     .radio-play-btn {
         width: 50px;
         height: 50px;
@@ -97,7 +96,6 @@
         color: #0f172a;
     }
 
-    /* Estado ativo quando a rádio está tocando */
     .radio-item.playing .radio-play-btn {
         background-color: #22c55e;
         border-color: #22c55e;
@@ -117,7 +115,6 @@
         justify-content: center;
     }
 
-    /* Barra de segundos customizada */
     .radio-mini-player {
         width: 100%;
         height: 25px;
@@ -277,41 +274,14 @@
             padding: 5px;
         }
         
-        .card {
-            padding: 15px;
-        }
-
-        .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            font-size: 1.4rem;
-        }
-
-        .card h2 {
-            font-size: 1.1rem;
-        }
-
-        .radios-header-section h1 {
-            font-size: 1.3rem;
-        }
-
-        .radios-container {
-            gap: 10px;
-        }
-
-        .radio-item {
-            width: 47%;
-            padding: 10px 5px;
-        }
-
-        .radio-play-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-        }
+        .card { padding: 15px; }
+        .card-icon { font-size: 2.2rem; margin-bottom: 10px; }
+        .price { font-size: 1.4rem; }
+        .card h2 { font-size: 1.1rem; }
+        .radios-header-section h1 { font-size: 1.3rem; }
+        .radios-container { gap: 10px; }
+        .radio-item { width: 47%; padding: 10px 5px; }
+        .radio-play-btn { width: 40px; height: 40px; font-size: 1.2rem; }
     }
 </style>
 
@@ -322,13 +292,13 @@
         <div class="radios-container">
             
             <div class="radio-item" id="radio1">
-                <div class="radio-play-btn" onclick="controlarRadio('https://stm2.srvif.com:7998/;?1779205537262', 'radio1')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://streaming.fabricahost.com.br/8270/stream', 'radio1')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Capital do Rap (Nacional)</div>
                 <audio class="radio-mini-player" id="player-radio1" controls preload="none"></audio>
             </div>
 
             <div class="radio-item" id="radio2">
-                <div class="radio-play-btn" onclick="controlarRadio('https://stm8.xcast.com.br:6938/stream?1779205762586', 'radio2')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://cast4.hoost.com.br:28414/stream', 'radio2')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Eurodance Mix</div>
                 <audio class="radio-mini-player" id="player-radio2" controls preload="none"></audio>
             </div>
@@ -340,13 +310,13 @@
             </div>
 
             <div class="radio-item" id="radio4">
-                <div class="radio-play-btn" onclick="controlarRadio('https://s22.maxcast.com.br:8034/live?1779205840685', 'radio4')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://shout25.crossradio.com.br:8106/;stream', 'radio4')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Tião de Oliveira (Modão Raiz)</div>
                 <audio class="radio-mini-player" id="player-radio4" controls preload="none"></audio>
             </div>
 
             <div class="radio-item" id="radio5">
-                <div class="radio-play-btn" onclick="controlarRadio('https://stm14.voxhd.com.br:8368/stream?1779205274754', 'radio5')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://ssl.painelcast.com:8012/;stream', 'radio5')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Dance Radio Net</div>
                 <audio class="radio-mini-player" id="player-radio5" controls preload="none"></audio>
             </div>
@@ -613,24 +583,28 @@
 <script>
     let activeRadioId = null;
 
+    // URL da API de Proxy Reverso Público para mascarar requisições e contornar bloqueios/CORS
+    const PROXY_URL = "https://api.allorigins.win/raw?url=";
+
     function controlarRadio(url, radioId) {
         const itemElement = document.getElementById(radioId);
         const player = document.getElementById('player-' + radioId);
         const playBtnIcon = itemElement.querySelector('.radio-play-btn i');
 
-        // Pausa qualquer rádio ativa antes de rodar a nova
         if (activeRadioId && activeRadioId !== radioId) {
             const oldElement = document.getElementById(activeRadioId);
             const oldPlayer = document.getElementById('player-' + activeRadioId);
             oldPlayer.pause();
-            oldPlayer.src = ""; // Corta o buffer antigo para economizar banda
+            oldPlayer.src = ""; 
             oldElement.classList.remove('playing');
             oldElement.querySelector('.radio-play-btn i').className = 'fa-solid fa-play';
         }
 
         if (player.paused) {
-            // Força o recarregamento limpo da URL para quebrar travas CORS de conexões persistentes
-            player.src = url;
+            // Concatena a URL original ao Proxy para mascarar a origem
+            const urlComProxy = PROXY_URL + encodeURIComponent(url);
+            
+            player.src = urlComProxy;
             player.load();
             
             player.play().then(() => {
@@ -638,11 +612,11 @@
                 playBtnIcon.className = 'fa-solid fa-pause';
                 activeRadioId = radioId;
             }).catch(err => {
-                console.log("Erro de reprodução contornado ou bloqueado pelo navegador: ", err);
+                console.log("Erro de reprodução utilizando Proxy: ", err);
             });
         } else {
             player.pause();
-            player.src = ""; // Libera a transmissão ao pausar
+            player.src = ""; 
             playBtnIcon.className = 'fa-solid fa-play';
             itemElement.classList.remove('playing');
             activeRadioId = null;
