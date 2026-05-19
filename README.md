@@ -247,7 +247,7 @@
             <div class="badge">Exclusivo</div>
             <div>
                 <h2>Leonardo I.A. (ELIS)</h2>
-                <div class="price">R$ 25 <span>/ todos os dias</span></div>
+                <div class="price">R$ 49,90 <span>/ todos os dias</span></div>
                 <ul class="features">
                     <li>Sistema Inteligente Integrado</li>
                     <li>Autonomia total de decisões</li>
