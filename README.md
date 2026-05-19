@@ -1,4 +1,4 @@
-<title>KAZAMA-WEB - Soluções Digitais</title>
+<title>LEOKAZAMA - Soluções Digitais</title>
 <style>
     * { 
         margin: 0; 
@@ -202,7 +202,7 @@
 </style>
 
 <header>
-    <h1>Casa na Web</h1>
+    <h1>LEOKAZAMA STORE</h1>
     <p>Sua plataforma completa de entertainment, inteligência artificial e recargas</p>
 </header>
 
