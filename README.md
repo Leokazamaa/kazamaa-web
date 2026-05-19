@@ -1,4 +1,4 @@
-<title>KAZAMA-WEB - Soluções Digitais</title>
+<title>LEOKAZAMA STORE - Soluções Digitais</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -211,7 +211,7 @@
 </style>
 
 <header>
-    <h1>Casa na Web</h1>
+    <h1>$KAMAZA STORE$</h1>
     <p>Sua plataforma completa de entretenimento, inteligência artificial e soluções digitais</p>
 </header>
 
