@@ -14,17 +14,16 @@
         color: #f8fafc;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centraliza horizontalmente o conteúdo */
+        align-items: center;
         justify-content: flex-start;
         min-height: 100vh;
         padding: 20px;
         width: 100%;
     }
 
-    /* Elemento que envelopa todo o conteúdo para garantir centralização perfeita em telas grandes */
     .wrapper {
         width: 100%;
-        max-width: 1000px; /* Impede que o site se espalhe excessivamente em monitores grandes */
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -112,13 +111,13 @@
         font-weight: 500;
         line-height: 1.2;
         margin-bottom: 10px;
-        height: 32px; /* Garante alinhamento mesmo com nomes longos */
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    /* Pequena barra de áudio nativa customizada abaixo de cada rádio */
+    /* Barra de segundos customizada */
     .radio-mini-player {
         width: 100%;
         height: 25px;
@@ -135,7 +134,6 @@
         text-align: left;
     }
 
-    /* Container com Grid configurado para se auto-ajustar e manter centralizado */
     .container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -272,7 +270,6 @@
         margin-bottom: 60px;
     }
 
-    /* Responsividade para tablets e celulares menores */
     @media (max-width: 600px) {
         .container {
             grid-template-columns: repeat(2, 1fr);
@@ -306,7 +303,7 @@
         }
 
         .radio-item {
-            width: 47%; /* Coloca duas rádios por linha no celular para manter organizado */
+            width: 47%;
             padding: 10px 5px;
         }
 
@@ -326,7 +323,7 @@
             
             <div class="radio-item" id="radio1">
                 <div class="radio-play-btn" onclick="controlarRadio('https://streaming.fabricahost.com.br/8270/stream', 'radio1')"><i class="fa-solid fa-play"></i></div>
-                <div class="radio-name">Capital do Rap</div>
+                <div class="radio-name">Capital do Rap (Nacional)</div>
                 <audio class="radio-mini-player" id="player-radio1" controls preload="none"></audio>
             </div>
 
@@ -343,13 +340,13 @@
             </div>
 
             <div class="radio-item" id="radio4">
-                <div class="radio-play-btn" onclick="controlarRadio('https://shout25.crossradio.com.br:8106/1', 'radio4')"><i class="fa-solid fa-play"></i></div>
-                <div class="radio-name">Tião de Oliveira (Sertaneja Raiz)</div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://shout25.crossradio.com.br:8106/;stream', 'radio4')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-name">Tião de Oliveira (Modão Raiz)</div>
                 <audio class="radio-mini-player" id="player-radio4" controls preload="none"></audio>
             </div>
 
             <div class="radio-item" id="radio5">
-                <div class="radio-play-btn" onclick="controlarRadio('https://ssl.painelcast.com:8012/stream', 'radio5')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://ssl.painelcast.com:8012/;stream', 'radio5')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Dance Radio Net</div>
                 <audio class="radio-mini-player" id="player-radio5" controls preload="none"></audio>
             </div>
@@ -621,30 +618,31 @@
         const player = document.getElementById('player-' + radioId);
         const playBtnIcon = itemElement.querySelector('.radio-play-btn i');
 
-        // Se clicar em um botão de uma rádio diferente da que está rodando, pausa a antiga primeiro
+        // Pausa qualquer rádio ativa antes de rodar a nova
         if (activeRadioId && activeRadioId !== radioId) {
             const oldElement = document.getElementById(activeRadioId);
             const oldPlayer = document.getElementById('player-' + activeRadioId);
             oldPlayer.pause();
-            oldPlayer.src = ""; // Libera a conexão do streaming antigo
+            oldPlayer.src = ""; // Corta o buffer antigo para economizar banda
             oldElement.classList.remove('playing');
             oldElement.querySelector('.radio-play-btn i').className = 'fa-solid fa-play';
         }
 
-        // Alterna entre tocar e pausar a rádio selecionada
         if (player.paused) {
-            if (!player.src || player.src !== url) {
-                player.src = url; // Atribui a URL apenas se ainda não estiver carregada
-            }
+            // Força o recarregamento limpo da URL para quebrar travas CORS de conexões persistentes
+            player.src = url;
+            player.load();
+            
             player.play().then(() => {
                 itemElement.classList.add('playing');
                 playBtnIcon.className = 'fa-solid fa-pause';
                 activeRadioId = radioId;
             }).catch(err => {
-                console.log("Erro de reprodução: ", err);
+                console.log("Erro de reprodução contornado ou bloqueado pelo navegador: ", err);
             });
         } else {
             player.pause();
+            player.src = ""; // Libera a transmissão ao pausar
             playBtnIcon.className = 'fa-solid fa-play';
             itemElement.classList.remove('playing');
             activeRadioId = null;
@@ -653,57 +651,24 @@
 
     function enviarPedido(type) {
         let message = "";
-
         switch(type) {
-            case 'teste':
-                message = "Olá! Gostaria de solicitar um test grats do sistema de canais e streaming para testar na minha Smart TV.";
-                break;
-            case 'mensal':
-                message = "Olá! Gostaria de assinar o Plano Mensal de Canais + Streaming por R$ 35 (30 dias). Como faço para pagar?";
-                break;
-            case 'anual':
-                message = "Olá! Quero aproveitar a promoção e adquirir o Plano Anual de Canais + Streaming por R$ 300 (12 meses).";
-                break;
-            case 'netflix':
-                message = "Olá! Gostaria de adquirir uma tela da Netflix 4K por R$ 20 (30 dias). Como posso realizar o pagamento?";
-                break;
-            case 'youtube':
-                message = "Olá! Gostaria de adquirir o acesso ao YouTube Premium sem propagandas por R$ 20 (30 dias).";
-                break;
-            case 'spotify':
-                message = "Olá! Tenho interesse na promoção do Spotify Premium (3 meses por R$ 20).";
-                break;
-            case 'gemini':
-                message = "Olá! Tenho interesse no acesso ao Gemini Pro por R$ 49,90 por 30 dias.";
-                break;
-            case 'chatgpt':
-                message = "Olá! Tenho interesse no acesso ao ChatGPT Plus por R$ 49,90 por 30 dias.";
-                break;
-            case 'capcut':
-                message = "Olá! Gostaria de adquirir o acesso ao CapCut Pro por R$ 30 por 30 dias.";
-                break;
-            case 'leonardo':
-                message = "Olá! Quero contratar o sistema integrado com a Inteligência Artificial Leonardo I.A. (ELIS) pelo valor diário de R$ 25.";
-                break;
-            case 'gamepass':
-                message = "Olá! Gostaria de consultar os valores e opções para o Game Pass Ultimate / Gamepass Ultimate PC.";
-                break;
-            case 'psn':
-                message = "Olá! Gostaria de informações sobre os planos da PSN Plus.";
-                break;
-            case 'jogos':
-                message = "Olá! Quero consultar o catálogo de jogos digitais. Tenho interesse em jogos de (PC / PS1 / PS2 / PS3 / Xbox 360 / PSP / Nintendo Wii / Game Boy).";
-                break;
-            case 'desbloqueio':
-                message = "Olá! Gostaria de um orçamento para desbloqueio de console (PS3 / Nintendo Wii).";
-                break;
-            case 'suporte':
-                message = "Olá! Preciso de assistência técnica (Instalação e Configurações de PC On-line / Instalação de todos os Sistemas / Remoção de Contas Google).";
-                break;
-            default:
-                message = "Olá! Gostaria de mais informações sobre as soluções digitais da plataforma.";
+            case 'teste': message = "Olá! Gostaria de solicitar um teste grátis do sistema de canais e streaming para testar na minha Smart TV."; break;
+            case 'mensal': message = "Olá! Gostaria de assinar o Plano Mensal de Canais + Streaming por R$ 35 (30 dias). Como faço para pagar?"; break;
+            case 'anual': message = "Olá! Quero aproveitar a promoção e adquirir o Plano Anual de Canais + Streaming por R$ 300 (12 meses)."; break;
+            case 'netflix': message = "Olá! Gostaria de adquirir uma tela da Netflix 4K por R$ 20 (30 dias). Como posso realizar o pagamento?"; break;
+            case 'youtube': message = "Olá! Gostaria de adquirir o acesso ao YouTube Premium sem propagandas por R$ 20 (30 dias)."; break;
+            case 'spotify': message = "Olá! Tenho interesse na promoção do Spotify Premium (3 meses por R$ 20)."; break;
+            case 'gemini': message = "Olá! Tenho interesse no acesso ao Gemini Pro por R$ 49,90 por 30 dias."; break;
+            case 'chatgpt': message = "Olá! Tenho interesse no acesso ao ChatGPT Plus por R$ 49,90 por 30 dias."; break;
+            case 'capcut': message = "Olá! Gostaria de adquirir o acesso ao CapCut Pro por R$ 30 por 30 dias."; break;
+            case 'leonardo': message = "Olá! Quero contratar o sistema integrado com a Inteligência Artificial Leonardo I.A. (ELIS) pelo valor diário de R$ 25."; break;
+            case 'gamepass': message = "Olá! Gostaria de consultar os valores e opções para o Game Pass Ultimate / Gamepass Ultimate PC."; break;
+            case 'psn': message = "Olá! Gostaria de informações sobre os planos da PSN Plus."; break;
+            case 'jogos': message = "Olá! Quero consultar o catálogo de jogos digitais. Tenho interesse em jogos de (PC / PS1 / PS2 / PS3 / Xbox 360 / PSP / Nintendo Wii / Game Boy)."; break;
+            case 'desbloqueio': message = "Olá! Gostaria de um orçamento para desbloqueio de console (PS3 / Nintendo Wii)."; break;
+            case 'suporte': message = "Olá! Preciso de assistência técnica (Instalação e Configurações de PC On-line / Instalação de todos os Sistemas / Remoção de Contas Google)."; break;
+            default: message = "Olá! Gostaria de mais informações sobre as soluções digitais da plataforma.";
         }
-
         dispararWhatsapp(message);
     }
 
