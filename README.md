@@ -304,7 +304,7 @@
             </div>
 
             <div class="radio-item" id="radio3">
-                <div class="radio-play-btn" onclick="controlarRadio('https://s04.wmsite.com.br:8244/stream', 'radio3')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('http://stm24.xcast.com.br:9022/stream?1779206349888', 'radio3')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Elite Rock</div>
                 <audio class="radio-mini-player" id="player-radio3" controls preload="none"></audio>
             </div>
