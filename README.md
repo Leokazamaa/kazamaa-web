@@ -328,7 +328,7 @@
             </div>
 
             <div class="radio-item" id="radio2">
-                <div class="radio-play-btn" onclick="controlarRadio('https://cast4.hoost.com.br:28414/stream', 'radio2')"><i class="fa-solid fa-play"></i></div>
+                <div class="radio-play-btn" onclick="controlarRadio('https://stm8.xcast.com.br:6938/stream?1779205762586', 'radio2')"><i class="fa-solid fa-play"></i></div>
                 <div class="radio-name">Eurodance Mix</div>
                 <audio class="radio-mini-player" id="player-radio2" controls preload="none"></audio>
             </div>
